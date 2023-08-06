@@ -1,0 +1,48 @@
+
+In order to better align with equals signs and stuff, it is better
+to have fractions span three lines (as opposed to two lines with the
+top one being underlined).
+ 
+  6    
+ ――― = 3
+  2
+
+The bar character "―" (U+2015) was chosen.
+
+The length of the bar is the maximum of the lengths of the numerator
+and denominator padded with two more characters on the end.
+
+   22
+  ―――― = 3.14
+    7
+
+Ideally, we want to align the expressions, but this is not always possible. In
+this case, while we can align the longer expression (because that determines the
+length of the bar), the smaller expression may not align if its length mod 2 is
+not congruent to the longer expression length mod 2.
+
+  x / 2         x            x
+ ――――――― = ――――――――――― = ――――――――
+  x - 2     2 (x - 2)     2x - 4
+
+If the numerator or denominator has a trivial division, similar to the one seen above,
+it is easier to render it linearly.
+
+In some cases, such as numeral multiplication, we are able to add a space in order
+to center the expression cleanly. If possible, do so.
+
+   x           x + 8
+  ――― + 4     ―――――――
+   2             2        x + 8
+ ――――――――― = ――――――――― = ―――――――
+     x           x         2x
+
+                           ^
+                           It actually looks fine when the 2x is aligned more to the
+                           right, but in the number uneven denominator, it looked a
+                           bit weirder. How should we choose? Perhaps if they are
+                           uneven, take the length of the bar and divide it by 2? It
+                           seems to work?
+
+Fractions in fractions are rendered as you might expect.
+
