@@ -1,0 +1,42 @@
+\MakeOuterQuote{"}
+
+% Paragraph styling
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.0}
+
+% Section customizing
+\titleformat{\section}[hang]{\LARGE \bfseries}{}{0pt}{}[{}]
+\titleformat{\subsection}{\bfseries\Large}{}{0pt}{}
+\titleformat{\subsubsection}{\bfseries}{}{0pt}{}
+
+%\titlespacing{\section}{-20pt}{20pt}{10pt}
+\titlespacing{\section}{0pt}{20pt}{10pt}
+
+\definecolor{fadegray}{RGB}{160, 180, 180}
+
+% \newcommand{\NewSection}[2]{\section{#1\hfill\color{fadegray}#2}}
+\setlength\marginparwidth{4cm}
+
+\newcommand{\MarginComment}[1]{\marginpar{\fontsize{8pt}{10pt}\selectfont #1}}
+
+\captionsetup{
+    font=footnotesize
+}
+
+\newtcolorbox{blackbox}{colback=white, boxrule=0.7pt, colframe=black, sharp corners}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+
+\setlength{\abovedisplayskip}{-15pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{-15pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+% \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
+\setlist[enumerate, 1]{label=\textbf{\arabic*.}}
+
+% \usetikzlibrary{positioning}

@@ -1,0 +1,8 @@
+Total trials: 100000
+Frequencies:
+  0: 37417
+  1: 33319
+  2: 25072
+  3: 0
+  4: 4192
+Expected Matches: 1.00231
