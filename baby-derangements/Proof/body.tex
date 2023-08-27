@@ -1,0 +1,94 @@
+\section{Baby Derangements: A Proof}
+
+The last time when we left off on our baby derangement journey supported by
+Lester, we did a little bit of fun combinatorics to figure out a closed form
+for the number baby derangements with a certain number \( k \) matches for a
+generalized \( n \) number of babies. Near the end, we wanted to show that the
+definition was well defined (i.e. the sum of all baby derangements combines to
+give us all \( n! \) arrangements) and that the expected value of matches
+equals \( 1 \) independent of \( n \). I wasn't able to give a proof of it that
+day because I didn't stare at the screen long enough, and so I defaulted to
+using a bit of handwaving and saying that it held empirically.
+
+During a bit of a math scrolling spree at 10:00 PM a few days ago, I found that
+the expected value proof is actually in fact an IMO problem, specifically
+problem 1 from 1987. \MarginComment{Sure it's only problem 1 on the IMO, but
+it's an IMO problem nonetheless, so it's still fun.} This was the perfect
+motivation to actually go ahead and work on the proof. So without further
+ado, here's a hopefully self-contained and rigorous \textit{enough}
+solution.
+
+\begin{blackbox}
+    \begin{problem}[IMO 1987 \#1]
+        Let \( p_n (k) \) be the number of permutations of the set \( \{1,
+        \ldots, n\} \), \( n \geqslant 1 \), which have exactly \( k \) fixed
+        points. Prove that
+        \[
+            \sum_{k = 0}^{n} k p_n (k) = n!
+        .\]
+    \end{problem}
+\end{blackbox}
+
+Although it may not look like it at first glance, this is exactly equivalent to
+our expected value baby derangements problem. Instead of working with babies
+matching to their mothers, we work instead with the more "dry" fixed points of
+permutations, but it is the same underlying concept. One can more intuitively
+transform the problem to the expected value one by dividing both sides by the
+\( n! \).
+
+It's time to fully tackle the problem now. We'll need a small tool to start.
+\begin{proposition}
+    The number of permutations of the set \( \{ 1, \ldots, n \} \) with exactly \( k \) fixed points, \( p_n (k) \), is given by
+    \[
+        p_n(k) = \binom{n}{k} D_{n - k}
+    ,\]
+    where \( D_m \) denotes the number of derangements of \( m \) items.
+\end{proposition}
+\begin{proof}
+    We shall prove this by a straightforward combinatorial argument.
+
+    Fix \( k \) items out of the set. We must necessarily permute the remaining
+    \( n - k \) items such that they have no fixed point, precisely the
+    definition of a derangement. Since there are \( \binom{n}{k} \) ways to fix
+    \( k \) elements and \( D_{n - k} \) ways to permute \( n - k \) elements
+    to have no fixed point, we have that
+    \[
+        p_n (k) = \binom{n}{k} D_{n - k}
+    .\]
+\end{proof}
+With this, we can move on to the actual proof of the problem, which is really
+just a decent bit of sum manipulation.
+\begin{proof}
+    As previously mentioned, the problem statement is equivalent to proving that
+    \[
+        \sum_{k = 0}^{n} k \frac{p_n (k)}{n!} = 1
+    .\]
+    For this, we shall use a form of induction. Let \( f(n) \) denote the LHS
+    of the previous equation. We can see quite trivially that \( f(1) = 0 + 1 =
+    1 \), so all that's left is to prove \( f(n + 1) - f(n) = 0 \) for \( n \geqslant 1 \). In other words, we desire
+    \begin{align*}
+        \left( \sum_{k = 0}^{n + 1} k \frac{p_{n + 1}(k)}{(n+1)!} \right) - \left( \sum_{k = 0}^{n} k \frac{p_n (k)}{n!} \right) &= 0 \\
+        \iff \left( \sum_{k = 0}^{n + 1} \frac{k}{(n + 1)!} \binom{n + 1}{k} D_{n + 1 - k} \right) - \left( \sum_{k = 0}^{n} \frac{k}{n!} \binom{n}{k} D_{n - k} \right) &= 0
+    .\end{align*}
+    From here, we can call upon a well-known \MarginComment{This is the only
+    part that I feel is a little bit cheating, but in my defense it is a
+    decently well-known expression and it can be proven using inclusion-exclusion.}
+    closed form for the number of derangements of \( m \) items:
+    \[
+        D_m = m! \sum_{i = 0}^{m} \frac{(-1)^i}{i!}
+    .\]
+    From this, we have that \( f(n+1) - f(n) \) is
+    \begin{align*}
+        &\left( \sum_{k = 0}^{n + 1} \frac{k}{k!} \sum_{i = 0}^{n + 1 - k} \frac{(-1)^i}{i!} \right) - \left( \sum_{k = 0}^{n} \frac{k}{k!} \sum_{i = 0}^{n - k} \frac{(-1)^i}{i!} \right) \\
+        &= \frac{1}{n!} + \sum_{k = 0}^{n} \frac{k}{k!} \cdot \frac{(-1)^{n - k + 1}}{(n - k + 1)!} \\
+        &= \frac{1}{n!} + \sum_{k = 1}^{n} \frac{1}{(k - 1)! \left( n - (k - 1) \right)!} (-1)^{n - (k - 1)} \\
+        &= \frac{1}{n!} + \sum_{k = 0}^{n - 1} \frac{1}{k! (n - k)!} (-1)^{n - k} \\
+        &= \sum_{k = 0}^{n} \frac{1}{k! (n - k)!} (-1)^{n - k} \\
+        &= \frac{1}{n!} \sum_{k = 0}^{n} \frac{n!}{k! (n - k)!} (-1)^{n - k} \\
+        &= \frac{1}{n!} \sum_{k = 0}^{n} \binom{n}{k} (-1)^{n - k}
+    .\end{align*}
+    By the binomial theorem, this is precisely \( (1 + (-1))^n / n! = 0 \).
+    This completes the inductive step and proves that \( f(n) = 1 \) for all \(
+    n \geqslant 1 \), which is equivalent to our original problem.
+\end{proof}
+
