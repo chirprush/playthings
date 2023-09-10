@@ -1,0 +1,27 @@
+from math import ceil
+from sympy import Matrix, Rational
+
+n = 5
+
+N = n // 2
+
+def co(l, m):
+    k = n % 2 + 2 * l
+    i = (-k) % 2 + 2 * m
+    return Rational(1, i + k + 1)
+
+def res(l, m):
+    k = n % 2 + 2 * l
+    return Rational(-1, n + k + 1)
+
+A = Matrix(N, N, co)
+b = Matrix(N, 1, res)
+
+print(A)
+print(b)
+
+coefficients = [*list(A.inv() * b), 1]
+
+print(coefficients)
+
+print(' + '.join(f"({c})x^{n % 2 + 2 * i}" for i, c in enumerate(coefficients)))
