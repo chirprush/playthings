@@ -3,11 +3,11 @@
 # ...and, well, a calculator
 
 from cmath import exp, pi
-
-C = 0.999999
+from math import prod
 
 def P(x):
     return (x ** 2310 - 1) ** 6 / ((x ** 105 - 1) * (x ** 70 - 1) * (x ** 42 - 1) * (x ** 30 - 1))
+    # return prod((1 - x ** k) ** (-1) for k in [1, 2, 5, 10, 20, 50, 100, 200])
 
 def PExp(t):
     return P(C * exp(1j * t))
@@ -25,4 +25,8 @@ def integrate(f, a, b, steps=100):
 
     return total
 
-print(integrate(lambda t: PExp(t) * exp(-2022j * t), 0, 2 * pi, 100000) * C ** (-2022) / (2 * pi))
+# Depending on the function and N, the values of C that work are a bit finnicky
+C = 0.999999
+N = 2022
+
+print(integrate(lambda t: PExp(t) * exp(-N * 1j * t), 0, 2 * pi, 100000) * C ** (-N) / (2 * pi))
