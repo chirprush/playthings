@@ -11,14 +11,14 @@ def sim_walk(steps):
         ypos += dt * sin(2 * pi * theta)
     return dist((0, 0), (xpos, ypos))
 
-STEPS = 1000
+STEPS = 10000
 BINS = 100
 
-N = 1000
+WALKS = 1000
 
 bins = [0] * BINS
 
-for _ in range(N):
+for _ in range(WALKS):
     index = floor(BINS * sim_walk(STEPS))
     bins[index] += 1
 
