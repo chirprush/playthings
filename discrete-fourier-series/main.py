@@ -12,7 +12,7 @@ L = pi
 
 def sample(n):
     x = 2 * n * L / N
-    return sin(x)
+    return n % 2 # cos(x)
     # return sin(x)
 
 def dft(k):
