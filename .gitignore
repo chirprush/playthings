@@ -3,3 +3,4 @@ youtube-history/watch-history.json
 **/bin
 **/__pycache__
 **/*.class
+**/target
