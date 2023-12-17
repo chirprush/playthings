@@ -1,0 +1,42 @@
+\documentclass[a5paper]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{A Small Little Three Variable Inequality}
+
+% Actually I just wanted to type this out for a friend but hey might as well keep it right
+
+\begin{blackbox}
+    \begin{problem}
+        For real numbers \( a, b, c \) such that \( a \le b \le c \), prove that
+        \[
+            a^2 + ac + c^2 \ge 3b (a - b + c)
+        .\]
+    \end{problem}
+\end{blackbox}
+
+\begin{proof}
+Bring everything over to one side. We must prove that
+\[
+    a^2 + c^2 + 3b^2 + ac - 3bc - 3ab \ge 0
+.\]
+From the trivial inequality, one has that \( (b - a)^2 = b^2 - 2ab + a^2 \ge 0 \) and also \( (c - b)^2 = c^2 - 2bc + b^2 \ge 0 \). Substituting these into the inequality we get that
+\[
+    (b - a)^2 + (c - b)^2 - bc + b^2 - ab + ac \ge 0
+.\]
+From here we can factor a little bit. Notice that \( -bc + b^2 = - b(c - b) \) and \( -ab + ac = a(c - b) \). Adding these we get that \( -bc + b^2 - ab + ac = (a - b)(c - b) = -(b - a)(c - b) \), so
+\[
+    (b - a)^2 + (c-b)^2 \ge (b - a)(c - b)
+.\]
+But this follows directly from AM-GM, where we have
+\[
+    (b - a)^2 + (c - b)^2 \ge 2 \sqrt{(b - a)^2 (c - b)^2} = 2 (b-a)(c - b)
+.\]
+\end{proof}
+
+One must remark that the inequality in the problem actually isn't needed, which
+is rather odd.
+
+\end{document}
