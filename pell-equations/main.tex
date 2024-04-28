@@ -1,0 +1,82 @@
+\documentclass[a5paper]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{Having Some Fun With Pell Equations}
+
+Pell equations are quadratic Diophantine equations of a special kind with
+infinite solutions that are very useful in a wide range of settings. In
+particular, though, they seem to come up in Project Euler problems quite a bit,
+so I figured I might as well document some of the useful relations for
+computation and such because I seem to forget them everytime.
+
+\subsection*{Overview}
+
+The simplest Pell equations are of the form
+\[
+    x^2 - Dy^2 = 1
+,\]
+where \( x \) and \( y \) are positive integers and we fix \( D \) to be a non-square value. We shall call
+these \textit{fundamental}. This being said, we may also encounter \textit{generalized Pell equations} of the form
+\[
+    x^2 - Dy^2 = k
+.\]
+The solutions to these are quite easily derived from the corresponding
+fundamental Pell equation, though.
+
+The basic idea behind Pell equations is that if we have the smallest, trivial solution
+(i.e. the smallest \( (x, y) \) values that satisfy the equation), then we can
+generate all infinite solutions of the Pell equation using some computation.
+While I don't know of a way to find the trivial solutions, once we do have
+them, everything goes quite swimmingly and nice.
+
+\subsection*{Basic Results}
+
+One of the first things to show (which is very easy) is that Pell equations
+don't have solutions if \( D \) is a perfect square.
+\begin{chirpbox}
+    \begin{theorem}
+        There exists no solutions \( (x, y) \) to the equation
+        \[
+            x^2 - Dy^2 = 1
+        \]
+        when \( D = n^2 \) for some natural number \( n \).
+    \end{theorem}
+\end{chirpbox}
+\begin{proof}
+    This follows trivially from factoring the difference of squares:
+    \[
+        x^2 - n^2 y^2 = (x - ny)(x + ny) = 1
+    .\]
+    By the fundamental theorem of arithmetic, this only holds true if both
+    terms are either \( 1 \) or \( -1 \), but this can only be the case if \(
+    (x, y) = (\pm1, 0) \). As we've stated before, though, \( x,y \) must be
+    positive, so we may discard this and say that there are no solutions.
+\end{proof}
+The main tenet of Pell equations is that, once we have a trivial solution, we
+can generate all other solutions. This is based on the following fact:
+\begin{chirpbox}
+    \begin{theorem}[Brahmagupta's Identity]
+        We have that
+        \[
+            (x^2 - D y^2)(w^2 - Dz^2) = (xw + Dyz)^2 - D(xz + yw)^2
+        .\]
+    \end{theorem}
+\end{chirpbox}
+The proof is somewhat just algebra and shall be omitted, but what's important
+here to recognize is that multiplying two Pell solutions gives us another Pell
+solution. Particularly for fundamental Pell equations, this gives us a way to
+generate all\footnote{This does not prove that all solutions are reached, but
+just trust that all are lmao :thumbsup:} solutions because on the right hand
+side we have that \( 1 \cdot 1 = 1 \). This also bridges the gap between the
+fundamental Pell equations and the generalized ones. In particular, if we
+multiply a trivial solution of the generalized Pell equation by the trivial
+solution of the corresponding (that is, one with the same \( D \), but \( k = 1
+\)) fundamental equation, we get another solution of the generalized Pell
+equation.
+
+\subsection*{Examples}
+
+\end{document}
