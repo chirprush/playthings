@@ -1,6 +1,9 @@
 youtube-history/Takeout
 youtube-history/watch-history.json
-**/bin
 **/__pycache__
 **/*.class
 **/target
+
+**/bin/**
+!**/bin/
+!**/bin/main.pdf

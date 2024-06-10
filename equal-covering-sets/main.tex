@@ -1,0 +1,103 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+\usepackage{multicol}
+
+\begin{document}
+
+\section*{Equal Covering Sets}
+
+\begin{definition}
+    Call a set \( C \) of sets to be an \textit{equal covering set} of \( S \) if the elements of \( C \) are all the same size and each element of \( S \) is contained an equal number of times throughout the sets of \( C \). We say that an equal covering set is \textit{of order \( k \)} if all elements of \( C \) are of size \( k \).
+\end{definition}
+
+\begin{chirpbox}
+    \begin{problem}
+        How many equal covering sets are there of order \( k \) for the set \( \{1, 2, \ldots, n \} \)? How many total equal covering sets are there for the set?
+    \end{problem}
+\end{chirpbox}
+
+For convenience, let \( f(n, k) \) denote the function that counts this value.
+
+\begin{example}
+    We can write down a few trivial cases:
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item \( f(n, 0) = 2 \) (given by \( \{ \} \) and \( \{ \{ \} \} \))
+        \item \( f(n, 1) = 2 \)
+        \item \( f(n, n) = 2 \)
+        \item \( f(n, k) = f(n, n-k) \)
+        \item \( f(3, 2) = 2 \)
+        \item \( f(4, 2) = 8 \)
+    \end{itemize}
+    \end{multicols}
+    Using abbreviated notation, we may list out the actual sets for \( f(4, 2) \) to be \( \{ \} \), \( \{ 12, 34 \} \), \( \{ 13, 24 \} \), \( \{ 14, 23 \} \), \( \{ 12, 34, 14, 23 \} \), \( \{ 13, 24, 14, 23 \} \), \( \{ 12, 34, 13, 24 \} \), \( \{ 12, 13, 14, 23, 24, 34 \} \).
+\end{example}
+
+\begin{observation}
+    We can see that the covering sets are governed by the following equation, which gives us some intuition towards counting them:
+    \begin{align*}
+        (\textsf{total elements}) &= (\textsf{number of sets}) \cdot (\textsf{size of sets}) \\
+        &= (\textsf{number of distinct elements}) \cdot (\textsf{times elements are included})
+    .\end{align*}
+    It should be noted that each tuple doesn't uniquely describe a single covering set, as there may be different permutations used. We shall customarily denote a tuple of these four elements respectively by \( (s, k, n, m) \).
+
+    % This characterization helps us to count casewise based off of the number of times elements are included in the sets
+\end{observation}
+
+\begin{observation}
+    The greatest number of sets contained in an equal covering set of order \( k \) is given by \( \binom{n}{k}  \). This tells us that the maximum number of times an element is included, denoted by \( m \), is given by
+    \[
+        \binom{n}{k} k = n m \implies m = \frac{k}{n} \binom{n}{k} = \binom{n - 1}{k - 1} 
+    .\]
+    The lower value for the number of inclusions is simply just \( 0 \). This may motivate going casewise on inclusions for counting these sets.
+\end{observation}
+
+\begin{observation}
+    For all valid tuples \( (s, k, n, m) \), \( m \) must be a multiple of \( k' = k / \gcd{(n, k)} \).
+
+    \begin{proof}
+        We have that
+        \[
+            sk = nm
+        ,\]
+        and letting \( k' = k / \gcd{(n, k)}, n' = n / \gcd{(n, k)} \), we have that
+        \[
+            s = \frac{n' m}{k'}
+        .\]
+        Since \( \gcd{(n', k')} = 1 \) and \( s \) is a natural number, clearly \( k' \mid m \).
+    \end{proof}
+
+    This allows us to decompose the value of \( f(n, k) \) into a sum that goes casewise based on \( m \):
+    \[
+        f(n, k) = \sum\limits_{\substack{0 \le m \le \binom{n - 1}{k - 1}, \\ k' \mid m}} g(nm / k, k, n, m)
+    ,\]
+    for some (unknown) function \( g(s, k, n, m) \).
+\end{observation}
+
+\begin{observation}
+    We may brute force these values; although as the inputs grow, the time complexity grows rather quickly. In particular, we may generate all \( \binom{n}{k} \) possible \( k \)-sized subsets of \( \{ 1, 2, \ldots, n \} \). Then any equal covering set is a valid \( s \)-sized subset of these \( \binom{n}{k} \) sets. A naive approach is to generate all of these subsets and only calculate the valid ones. Thus the time complexity is given by
+    \[
+        g(s, k, n, m) \in O\left( \binom{\binom{n}{k}}{s} sk \right)
+    ,\]
+    which is rather ugly but it shall do. We shall sum this over all possible values of \( s \) (determined earlier).
+\end{observation}
+
+\begin{figure}[b]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \( n \) & \( f(n, k) \)'s & Sum of \( f(n, k) \) \\
+        \hline
+        \( 1 \) & \( 2, 2 \) & \( 4 \) \\
+        \( 2 \) & \( 2, 2, 2 \) & \( 6 \) \\
+        \( 3 \) & \( 2, 2, 2, 2 \) & \( 8 \) \\
+        \( 4 \) & \( 2, 2, 8, 2, 2 \) & \( 16 \) \\
+        \( 5 \) & \( 2, 2, 14, 14, 2, 2 \) & \( 36 \) \\
+        \( 6 \) & \( 2, 2, 172, 3436, 172, 2, 2 \) & \( 3788 \) \\
+        \hline
+    \end{tabular}
+    \caption{Calculated values for small values of \( n \) and all values of \( k \).}
+\end{figure}
+
+\end{document}
