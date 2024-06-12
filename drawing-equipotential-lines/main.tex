@@ -1,0 +1,73 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{Drawing Equipotential Curves}
+
+This is a small little description of how I would try to draw equipotential curves, specifically for \textbf{two dimensional} vector fields. We shall first start by laying the groundwork of vector fields and potentials.
+
+\begin{sidebox}
+    \begin{definition}
+            Let \( \vec{F} \colon \mathbb{R}^n \to \mathbb{R}^n \) be a vector field. We call the field's \textit{potential function} \( P \colon \mathbb{R}^n \to \mathbb{R} \) the unique function such that:
+        \[
+            \vec{F} = - \nabla P
+        .\]
+    \end{definition}
+\end{sidebox}
+
+It is from this definition that the usual physics properties of the potential arise, and it also gives one a nice geometric intuition (field lines follow the potential downhill). In particular, we have that
+\[
+    \int_{\vec{a}}^{\vec{b}} \vec{F} \cdot d\vec{l} = \int_{\vec{b}}^{\vec{a}} \nabla P \cdot d\vec{l} = P(a) - P(b)
+,\]
+which follows from the Gradient Theorem.
+
+It is also from this definition that another key property of potentials arises, one that is very useful in attempting to draw them.
+
+\begin{sidebox}
+    \begin{claim}
+        At all points across an equipotential surface, the field lines are orthogonal to the surface.
+    \end{claim}
+\end{sidebox}
+
+\begin{proof}
+    Suppose we have a potential function \( P \) and we are looking in the neighborhood of some point \( \vec{r} \). Any point on the equipotential surface in the neighborhood of this point is by definition a point for which the potential does not differ from \( P(\vec{r}) \). In other words, we are looking for any point \( \vec{x} = (x_1, x_2, \ldots, x_n) \) such that
+    \[
+        x_1 \frac{\partial P(\vec{r})}{\partial x_1} + x_2 \frac{\partial P(\vec{r})}{\partial x_2} + \cdots + x_n \frac{\partial P(\vec{r})}{\partial x_n} = \vec{x} \cdot \nabla P(\vec{r}) = 0
+    .\]
+    Observe that \( \nabla P = \vec{F} \), so this reduces to any point \( \vec{x} \) on the equipotential surface in the neighborhood of \( \vec{r} \) having the property that
+    \[
+        \vec{F} \cdot \vec{x} = 0
+    ,\]
+    which means that the vector tangent to the equipotential surface is orthogonal to the field lines.
+\end{proof}
+
+Realizing this, we can use this to find and draw points along equipotential curves in two dimensions. Note that, for higher dimensions, this strategy fails to work given a greater number of points needed to define a valid surface as well as having a greater number of directions. That being said, this algorithm could be adapted to higher dimensions if given enough thought.
+
+Suppose we start at some point \( \vec{r} \) and we wish to find some further point \( \vec{r}'' \) on the equipotential surface. We may first move along the vector orthogonal to the field line at the point by some amount. That is to say,
+\[
+    \vec{r}' \leftarrow \vec{r} + dt \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \frac{\vec{F}(\vec{r})}{\| \vec{F} (\vec{r}) \|}
+,\]
+where the matrix represents a clockwise \( 90^\circ \) rotation and \( dt \) represents some step size.
+
+Practically, however, this also changes the potential we are at, so we must normalize the vector in a sense. We shall choose to normalize the vector along the field vector \( \vec{F} (\vec{r}') \), as going along the surface does not change the potential value. We can measure the potential value at \( \vec{r}' \) and then compare this to the value of \( P(\vec{r}) \) we wish to stay at in order to determine how far to step. In particular, using the shorthand that \( \vec{F} = \vec{F} (\vec{r}') \), let
+\[
+    \Delta P = \left. \frac{\partial}{\partial t} \, P(\vec{r} + t \vec{F}) \right\vert_{t = 0}
+\]
+so that \( (\Delta P) t = P(\vec{r}) - P(\vec{r}') \). Then our final approximation for the next point along the equipotential surface is given by
+\[
+    \vec{r}'' \leftarrow \vec{r} + t \vec{F}
+.\]
+Note that for several steps along the equipotential surface, the value of \( P(\vec{r}) \) should be stored and held constant in order to not diverge from teh equipotential.
+
+As a final remark, we shall calculate the value of \( \Delta P \) for an electrostatic system of \( n \) particles with respective charges \( q_1, q_2, \ldots, q_n \) and positions \( \vec{r}_1, \vec{r}_2, \ldots, \vec{r}_n \). We have that
+\[
+    P(\vec{r}) = \sum_{i = 1}^{n} \frac{kq_i}{\| \vec{r} - \vec{r}_i \|}
+.\]
+This then tells us that
+\[
+    \left. \frac{\partial}{\partial t} P(\vec{r} + t \vec{F}) \right\vert_{t = 0} = -\left. \sum_{i = 1}^{n} \frac{k q_i}{\| \vec{r} - \vec{r}_i \|^3} \, (\vec{r} + t \vec{F} - \vec{r}_i) \cdot \vec{F} \, \right\vert_{t = 0} = - \vec{F} \cdot \sum_{i = 1}^{n} \frac{k q_i (\vec{r} - \vec{r}_i)}{\| \vec{r} - \vec{r}_i \|^3}
+.\]
+
+\end{document}
