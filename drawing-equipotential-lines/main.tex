@@ -53,13 +53,13 @@ where the matrix represents a clockwise \( 90^\circ \) rotation and \( dt \) rep
 
 Practically, however, this also changes the potential we are at, so we must normalize the vector in a sense. We shall choose to normalize the vector along the field vector \( \vec{F} (\vec{r}') \), as going along the surface does not change the potential value. We can measure the potential value at \( \vec{r}' \) and then compare this to the value of \( P(\vec{r}) \) we wish to stay at in order to determine how far to step. In particular, using the shorthand that \( \vec{F} = \vec{F} (\vec{r}') \), let
 \[
-    \Delta P = \left. \frac{\partial}{\partial t} \, P(\vec{r} + t \vec{F}) \right\vert_{t = 0}
+    \Delta P = \left. \frac{\partial}{\partial t} \, P(\vec{r}' + t \vec{F}) \right\vert_{t = 0}
 \]
 so that \( (\Delta P) t = P(\vec{r}) - P(\vec{r}') \). Then our final approximation for the next point along the equipotential surface is given by
 \[
-    \vec{r}'' \leftarrow \vec{r} + t \vec{F}
+    \vec{r}'' \leftarrow \vec{r}' + t \vec{F}
 .\]
-Note that for several steps along the equipotential surface, the value of \( P(\vec{r}) \) should be stored and held constant in order to not diverge from teh equipotential.
+Note that for several steps along the equipotential surface, the value of \( P(\vec{r}) \) should be stored and held constant in order to not diverge from the equipotential.
 
 As a final remark, we shall calculate the value of \( \Delta P \) for an electrostatic system of \( n \) particles with respective charges \( q_1, q_2, \ldots, q_n \) and positions \( \vec{r}_1, \vec{r}_2, \ldots, \vec{r}_n \). We have that
 \[
@@ -67,7 +67,7 @@ As a final remark, we shall calculate the value of \( \Delta P \) for an electro
 .\]
 This then tells us that
 \[
-    \left. \frac{\partial}{\partial t} P(\vec{r} + t \vec{F}) \right\vert_{t = 0} = -\left. \sum_{i = 1}^{n} \frac{k q_i}{\| \vec{r} - \vec{r}_i \|^3} \, (\vec{r} + t \vec{F} - \vec{r}_i) \cdot \vec{F} \, \right\vert_{t = 0} = - \vec{F} \cdot \sum_{i = 1}^{n} \frac{k q_i (\vec{r} - \vec{r}_i)}{\| \vec{r} - \vec{r}_i \|^3}
+    \left. \frac{\partial}{\partial t} P(\vec{r}' + t \vec{F}) \right\vert_{t = 0} = -\left. \sum_{i = 1}^{n} \frac{k q_i}{\| \vec{r}' + t \vec{F} - \vec{r}_i \|^3} \, (\vec{r}' + t \vec{F} - \vec{r}_i) \cdot \vec{F} \, \right\vert_{t = 0} = - \vec{F} \cdot \sum_{i = 1}^{n} \frac{k q_i (\vec{r}' - \vec{r}_i)}{\| \vec{r}' - \vec{r}_i \|^3}
 .\]
 
 \end{document}
