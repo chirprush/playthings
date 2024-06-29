@@ -100,4 +100,25 @@ For convenience, let \( f(n, k) \) denote the function that counts this value.
     \caption{Calculated values for small values of \( n \) and all values of \( k \).}
 \end{figure}
 
+\begin{observation}
+    If we're counting the number of distinct equal covering sets, then summing all values of \( f(n,k) \) over \( k \) is actually incorrect because we count \( \{\} \) like \( k \) times. So the real value should be the sum minus \( k - 1 \).
+\end{observation}
+
+\begin{observation}
+    There exists a natural correspondence between equal covering sets and symmetric polynomials in \( n \) variables. In particular, we can see that \( f(n, k) \) is equal to the number of symmetric polynomials of the form
+    \[
+        \sum_{\sigma \in P} x_{\sigma(1)} x_{\sigma(2)} \cdots x_{\sigma(k)} \in R(x_1, x_2, \ldots, x_n)
+    ,\]
+    where \( P \) is some set of permutations such that the resulting sum is subject to the constraint that each \( x_i \) appears an equal number of times. While this doesn't really change the overall structure, it is potentially a good mental model. This does beg the question of whether there is a more general structure that has this property because we can also find other examples of things that have this sort of flavor (for example, bases of roots of unity adding to \( 0 \)).
+\end{observation}
+
+% Actually this is in fact not true naurrrr
+\begin{idea}
+    Can we show that \( P \) must be a subgroup of \( S_{n} \)? Perhaps it would help to work out some examples.
+\end{idea}
+
+\begin{example}
+    Let's go through all equal covering sets for \( n = 4 \) and turn them into 
+\end{example}
+
 \end{document}

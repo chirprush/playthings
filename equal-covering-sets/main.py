@@ -1,6 +1,19 @@
 from itertools import combinations
 from math import comb, gcd
 
+def pretty_print(c):
+    print("{", end="")
+
+    render = lambda t: "".join(str(a + 1) for a in t)
+
+    if len(c):
+        print(render(c[0]), end="")
+
+    for i in range(1, len(c)):
+        print(", " + render(c[i]), end="")
+
+    print("}")
+
 def valid(n, m, c):
     counts = {i : 0 for i in range(n)}
 
@@ -20,8 +33,8 @@ def g(s, k, n, m):
         result = valid(n, m, c)
         count += int(result)
 
-        # if result:
-        #     print(c)
+        if result:
+            pretty_print(c)
 
     return count
 
@@ -34,6 +47,11 @@ def f(n, k):
         count += g(s, k, n, m)
 
     return count
+
+n = 4
+print(sum(f(n, k) for k in range(1, n)))
+
+exit()
 
 for n in range(1, 7):
     count = 4
