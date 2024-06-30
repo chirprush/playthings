@@ -109,15 +109,21 @@
         (B_n B_n^{-1})_{ij} = \delta_{ij}
     ,\]
     so we must have that
+    % Credits to https://artofproblemsolving.com/community/c7h1973655p13689198
     \begin{align*}
         (B_n B_n^{-1})_{ij} &= \sum_{k = 1}^{n+1} (B_n)_{ik} (B_n^{-1})_{kj} \\
         &= \sum_{k = 1}^{n + 1} (-1)^{k + j} \binom{i - 1}{k - 1} \binom{k - 1}{j - 1} \\
         &= \sum_{k = 0}^{n} (-1)^{k + 1 + j} \binom{i - 1}{k} \binom{k}{j - 1}  \\
-        &= \textcolor{WildStrawberry}{\textsf{TODO}}
+        &= \binom{i - 1}{j - 1} (-1)^{1 + j} \sum_{k = 0}^{n} (-1)^k \binom{i - 1 - (j - 1)}{k - (j - 1)} 
     .\end{align*}
-    % Hmmmm
-    % https://artofproblemsolving.com/community/c7h1973655p13689198
-    % https://approach0.xyz/search/?q=OR%20content%3A%24%5Csum_k%20%5Cleft(-1%5Cright)%5Ek%5Cbinom%7Ba%7D%7Bk%7D%5Cbinom%7Bk%7D%7Bb%7D%24&p=1
+    For \( j > i \), this is trivially \( 0 \), so we'll assume from now on that \( j \le i \).
+    \begin{align*}
+        (B_n B_n^{-1})_{ij}  &= \binom{i - 1}{j - 1} (-1)^{1 + j} \sum_{k = j - 1}^{i - 1} (-1)^k \binom{i - 1 - (j - 1)}{k - (j - 1)} \\
+        &= \binom{i - 1}{j - 1} (-1)^{1 + j} \sum_{k = 0}^{i - j} (-1)^{k + j - 1} \binom{i - j}{k} \\
+        &= \binom{i - 1}{j - 1} \sum_{k = 0}^{i - j} (-1)^k \binom{i - j}{k} \\
+        &= \binom{i - 1}{j - 1} (1 - 1)^{i - j} 
+    ,\end{align*}
+    which is \( 0 \) for \( j < i \) and \( 1 \) only for \( j = i \), which is what we wished to show.
 \end{idea}
 
 \begin{remark}
