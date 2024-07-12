@@ -1,10 +1,14 @@
 from math import ceil
 from sympy import Matrix, Rational
 
-n = 5
+n = int(input("Enter a degree: "))
 
 N = n // 2
 
+# If my memory serves me right, this should generate polynomials orthogonal
+# with respect to the inner product defined by integration over [-1, 1]
+
+# I might derive some stuff again and write about it, perhaps instead using the inner product of integration over [0, 1] because that seems far easier.
 def co(l, m):
     k = n % 2 + 2 * l
     i = (-k) % 2 + 2 * m

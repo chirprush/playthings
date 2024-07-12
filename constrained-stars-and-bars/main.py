@@ -17,7 +17,6 @@ a = exp(2j * pi / N)
 
 result = 0
 
-# Wait is this even correct? Should it output 36?
 for j in range(N):
     result += gen(a ** j) * a ** (-n * j)
 

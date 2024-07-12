@@ -35,7 +35,7 @@ impl Tile {
     }
 
     fn count_paths_alt(&self, path: &mut Vec<Tile>) -> u32 {
-        let mut sum = 1;
+        let mut sum = if path.len() >= 3 { 1 } else { 0 };
 
         for neighbor in self.get_neighbors() {
             // Technically O(n) but let's see if we can get away with this
@@ -60,5 +60,8 @@ fn main() {
 
     // This outputs 12029640 if we don't have the condition that words need to be at least 3
     // letters long (see OEIS A236690)
+    //
+    // With the aforementioned condition, the number becomes 12029540, which does seem to check
+    // out.
     println!("{}", 4 * sum);
 }
