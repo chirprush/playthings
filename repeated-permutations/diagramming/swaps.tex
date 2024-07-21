@@ -1,0 +1,757 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{tikz}
+
+\usepackage{multicol}
+
+\begin{document}
+\( P_{0, 4} \):
+
+\begin{multicols}{3}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\( P_{1, 4} \):
+
+\begin{multicols}{3}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (2) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (2) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (3) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\( P_{2, 4} \):
+
+\begin{multicols}{3}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (3) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+    \draw[arrow] (1) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+    \draw[arrow] (2) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+    \draw[arrow] (3) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (4);
+    \draw[arrow] (2) edge [bend right=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (2) edge [bend left=75] (3);
+    \draw[arrow] (2) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (2) edge [bend left=75] (3);
+    \draw[arrow] (3) edge [bend right=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\( P_{3, 4} \):
+
+\begin{multicols}{3}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (3);
+    \draw[arrow] (1) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (3);
+    \draw[arrow] (2) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (3);
+    \draw[arrow] (2) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (3);
+    \draw[arrow] (3) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (4);
+    \draw[arrow] (2) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (1) edge [bend right=75] (4);
+    \draw[arrow] (2) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (3);
+    \draw[arrow] (1) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (3);
+    \draw[arrow] (2) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (3);
+    \draw[arrow] (3) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (2);
+    \draw[arrow] (2) edge [bend right=75] (4);
+    \draw[arrow] (1) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+    \draw[arrow] (1) edge [bend right=75] (2);
+    \draw[arrow] (2) edge [bend left=75] (3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    cookie/.style = {
+        circle,
+        thick,
+        minimum size = 0.2cm
+    },
+    arrow/.style = {
+        thick,
+        ->
+    }
+]
+    \node[cookie, draw] (1) at (0, 0) {};
+    \node[cookie, draw] (2) at (1, 0) {};
+    \node[cookie, draw] (3) at (2, 0) {};
+    \node[cookie, draw] (4) at (3, 0) {};
+
+    \draw[arrow] (1) edge [bend left=75] (3);
+    \draw[arrow] (3) edge [bend right=75] (4);
+    \draw[arrow] (1) edge [bend left=75] (4);
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\end{document}

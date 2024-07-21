@@ -1,0 +1,58 @@
+\subsection{Examples}
+
+Let us take a look at the case given to us when \( n = 3 \). The set \( \set{1, 2, 3} \) has the following \( 3! = 6 \) permutations:
+
+\begin{center}
+\begin{multicols}{3}
+    \( P_1\colon \cycle{1 & 2 & 3} \)
+
+    \( P_2\colon \cycle{2 & 1 & 3} \)
+
+    \( P_3\colon \cycle{3 & 2 & 1} \)
+
+    \( P_4\colon \cycle{1 & 3 & 2} \)
+
+    \( P_5\colon \cycle{3 & 1 & 2} \)
+
+    \( P_6\colon \cycle{2 & 3 & 1} \)
+\end{multicols}
+\end{center}
+
+Explained in human language:
+
+\begin{itemize}
+    \begin{multicols}{2}
+    \item \( P_1 \) doesn't change anything.
+    \item \( P_2 \) swaps the first and second element.
+    \item \( P_3 \) swaps the first and third element.
+    \item \( P_4 \) swaps the second and third element.
+    \item \( P_5 \) rotates all elements to the right.
+    \item \( P_6 \) rotates all elements to the left.
+    \end{multicols}
+\end{itemize}
+
+This is better illustrated when we find the values of \( f \left( P_i \right) \). We start with arrangement \( \cycle{1 & 2 & 3} \) and apply each permutation until we arrive back at this original value.
+
+\begin{itemize}
+    \item \( f \left( P_1 \right) = 1 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{1 & 2 & 3} \)
+    \item \( f \left( P_2 \right) = 2 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{2 & 1 & 3} \longrightarrow \cycle{1 & 2 & 3} \)
+    \item \( f \left( P_3 \right) = 2 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{3 & 2 & 1} \longrightarrow \cycle{1 & 2 & 3} \)
+    \item \( f \left( P_4 \right) = 2 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{1 & 3 & 2} \longrightarrow \cycle{1 & 2 & 3} \)
+    \item \( f \left( P_5 \right) = 3 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{3 & 1 & 2} \longrightarrow \cycle{2 & 3 & 1} \longrightarrow \cycle{1 & 2 & 3} \)
+    \item \( f \left( P_6 \right) = 3 \) with \( \cycle{1 & 2 & 3} \longrightarrow \cycle{2 & 3 & 1} \longrightarrow \cycle{3 & 1 & 2} \longrightarrow \cycle{1 & 2 & 3} \)
+\end{itemize}
+
+With this in hand, we can now calculate \( g \left( 3 \right) \) to be
+\begin{align*}
+    g \left( 3 \right) &= \frac{1}{6} \sum_{i = 1}^{6} f^2 \left( P_i \right) \\
+    &= \left( 1^2 + 2^2 + 2^2 + 2^2 + 3^3 + 3^3 \right) / 6 \\
+    &= 31 / 6 \\
+    &\approx 5.166666667
+\end{align*}
+
+In addition to this worked-out example, we are also given the following
+
+\begin{itemize}
+    \item \( g \left( 5 \right) = 2081/120 \approx 1.734166667 \times 10 \)
+    \item \( g \left( 20 \right) = 12422728886023769167301/2432902008176640000 \approx 5.106136147 \times 10^3 \)
+\end{itemize}

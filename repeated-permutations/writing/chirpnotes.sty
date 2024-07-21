@@ -1,0 +1,48 @@
+% Fun box stuff
+\newtcolorbox[]{chirpbox}{
+    colback=black!5!white,
+    boxrule = 0pt,
+    sharp corners,
+    enhanced,
+    borderline west={2pt}{0pt}{black}
+}
+
+% Lol this is kinda dumb and overengineered but meh
+\newcommand{\makechirpenv}[2]{
+    \newtheorem{thm#1}{#2}
+    \newenvironment{#1}[1][]
+        {\begin{chirpbox} \begin{thm#1}[##1]}
+        {\end{thm#1} \end{chirpbox}}
+}
+
+\newcommand{\makechirpenvstar}[2]{
+    \newtheorem*{thm#1}{#2}
+    \newenvironment{#1}[1][]
+        {\begin{chirpbox} \begin{thm#1}[##1]}
+        {\end{thm#1} \end{chirpbox}}
+}
+
+% Theorems
+\newtheoremstyle{chirpstyle}
+    {} % Space above theorem
+    {} % Space below theorem
+    {} % Theorem body font
+    {} % Indent amount
+    {\bfseries} % Theorem header font
+    {.} % Punctuation after theorem header
+    {5px} % Spacing after theorem header
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ \normalfont (#3)}} % The heading spec? idk
+
+\theoremstyle{chirpstyle}
+
+\makechirpenv{theorem}{Theorem}
+\makechirpenv{observation}{Observation}
+\makechirpenv{notation}{Notation}
+\makechirpenv{definition}{Definition}
+\makechirpenvstar{recall}{Recall}
+
+% Title Stuff
+\titleformat{\section}[hang]{\bfseries \Large}{}{0px}{}{}
+% \titleformat{\subsection}[hang]{\bfseries \large}{}{0px}{}{}
+\titleformat{\subsection}[leftmargin]{\bfseries}{}{0px}{}{}
+\titlespacing{\subsection}{5pc}{1.4ex}{1pc} % 4pc 1.4ex 1pc

@@ -1,0 +1,13 @@
+\subsection{Description}
+
+The set of natural numbers from \( 1 \) to \( n \), namely \( \left[ n \right] = \set{1, 2, \ldots, n} \), can be permuted in \( n! \) different ways. If we treat these permutations as operations upon this set, we can compose them together in interesting ways.
+
+Suppose we select a permutation \( P_i \) from one of the \( n! \) permutations. Let \( f \left( P_i \right) \) denote the minimum number of times we must compose , or repeatedly apply, \( P_i \) to return back to the identity element.
+
+Further, let \( g \left( n \right) \) denote the average value of \( f^2 \left( P_i \right) \) over all \( n! \) permutations of \( \left[n\right] \), calculated as
+\[
+    g \left( n \right) = \frac{1}{n!} \sum_{i = 1}^{n!} f^2 \left( P_i \right).
+\]
+Our task is to find \( g \left( 350 \right) \) to at least \( 10 \) digits of accuracy.
+
+\vspace{0.5cm}
