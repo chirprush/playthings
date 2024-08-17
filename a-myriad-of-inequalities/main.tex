@@ -1,0 +1,143 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{A Myriad of Inequalities}
+
+After receiving the USAMTS prizes, I now have a book on inequalities, so the best thing to do I suppose to hold me accountable to do the exercises is to write them down. I'm not the most experienced in olympiad inequalities, but they are satisfying to get right. You'll have to excuse any circuitous methods, but I hope these are helpful somehow.
+
+\begin{sidebox}
+    \begin{problem}
+        Suppose \( a, b, c > 0 \). Prove that
+        \[
+            (a + b)(b + c)(c + a) \ge 8abc
+        .\]
+    \end{problem}
+\end{sidebox}
+
+\begin{solution}
+    We shall expand the left hand side first to see that
+    \[
+        (a + b)(b + c)(c + a) = 2abc + \sum_{\textrm{cyc}} a^2 (b + c)
+    .\]
+    Dividing both sides by \( abc \), this turns the problem into proving
+    \[
+        \sum_{\textrm{cyc}} \left( \frac{a}{b} + \frac{a}{c} \right) \ge 6
+    .\]
+    If we write out the entire LHS, we can rearrange the terms to get something rather interesting:
+    \[
+        \iff \left( \frac{a}{b} + \frac{b}{a} \right) + \left( \frac{b}{c} + \frac{c}{b} \right) + \left( \frac{a}{c} + \frac{c}{a} \right) \ge 6
+    ,\]
+    We have a bunch of terms that are themselves plus their reciprocal. Thus, if the following inequality (\( \star \)) holds:
+    \[
+        t + \frac{1}{t} \ge 2
+    ,\]
+    then the main inequality must be true. Clearly, however, we have that (\(\star \)) is equivalent to
+    \[
+        t^2 + 1 \ge 2t \iff (t - 1)^2 \ge 0
+    ,\]
+    which is always true for real \( t \). This also tells us that equality is achieved when \( a = b = c \) (and a little more work can show for certain that this is the only case).
+\end{solution}
+
+\begin{sidebox}
+\begin{problem}
+    Suppose \( x, y, z > 0 \). Prove that
+    \[
+        (x + y + z) \left( \frac{1}{x} + \frac{1}{y} + \frac{1}{z} \right) \ge 9
+    .\]
+\end{problem}
+\end{sidebox}
+
+\begin{solution}
+    The main idea here is actually very similar to the previous problem. We can first expand the left hand side:
+    \[
+        (x + y + z) \left( \frac{1}{x} + \frac{1}{y} + \frac{1}{z} \right) = 3 + \left( \frac{x}{y} + \frac{y}{x} \right) + \left( \frac{x}{z} + \frac{z}{x} \right) + \left( \frac{y}{z} + \frac{z}{y} \right)
+    .\]
+    And since we have already seen that each of the terms surrounded in parentheses is at least \( 2 \), we immediately have that the left side is greater than or equal to \( 9 \), with the equality case occurring when \( a = b = c \).
+\end{solution}
+
+\begin{remark}
+    There are actually a myriad of ways to prove this inequality as well as its generalization to \( n \) variables. Cauchy-Schwarz and Chebyshev's (a consequence of rearrangement) are likely the most common.
+\end{remark}
+
+\begin{sidebox}
+\begin{problem}
+    Suppose \( a, b, c > 0 \). Prove that
+    \[
+        \frac{ab}{a + b} + \frac{bc}{b + c} + \frac{ca}{c + a} \le \frac{1}{2} (a + b + c)
+    .\]
+\end{problem}
+\end{sidebox}
+
+\begin{solution}
+    Observe that the left hand side is precisely
+    \[
+        \sum_{\textrm{cyc}} \frac{ab}{a + b} = \sum_{\textrm{cyc}} \frac{1}{\frac{1}{a} + \frac{1}{b}}
+    .\]
+    From a previous result, however, we have that
+    \[
+        \frac{1}{a} + \frac{1}{b} \ge \frac{4}{a + b}
+    ,\]
+    which tells us that
+    \[
+        \sum_{\textrm{cyc}} \frac{1}{\frac{1}{a} + \frac{1}{b}} \le \sum_{\textrm{cyc}} \frac{a + b}{4} = \frac{1}{2} (a + b + c)
+    .\]
+    Once again, the equality case occurs for \( a = b = c \).
+\end{solution}
+
+\begin{sidebox}
+    \begin{problem}
+        Let \( a, b, c \) be real numbers. Prove that
+        \[
+            a^4 + b^4 + c^4 \ge b^2 c^2 + c^2 a^2 + a^2 b^2 \ge abc(a + b + c)
+        .\]
+    \end{problem}
+\end{sidebox}
+
+\begin{solution}
+    This inequality breaks up into two smaller inequalities:
+    \begin{enumerate}
+        \item \( a^4 + b^4 + c^4 \ge b^2 c^2 + c^2 a^2 + a^2 b^2 \),
+        \item \( b^2 c^2 + c^2 a^2 + a^2 b^2 \ge abc(a + b + c) \).
+    \end{enumerate}
+    For the first inequality, we shall subtract over the RHS and multiply both sides by two to get
+    \[
+        2a^4 + 2b^4 + 2c^4 - 2b^2 c^2 - 2 c^2 a^2 - 2a^2 b^2 \ge 0
+    ,\]
+    but the left hand side is clearly \( (a^2 - b^2)^2 + (b^2 - c^2)^2 + (c^2 - a^2)^2 \), so the inequality holds.
+
+    For the second inequality, let \( x := ab \), \( y := bc \), \( z := ca \) so that the inequality transforms into
+    \[
+        x^2 + y^2 + z^2 \ge xy + yz + xz
+    .\]
+    If we multiply both sides by two and subtract over the RHS once again, however, we get that the left hand side is equal to
+    \[
+        2x^2 + 2y^2 + 2z^2 - 2xy - 2yz - 2xz = (x - y)^2 + (y-z)^2 + (x - z)^2
+    ,\]
+    which is clearly greater than \( 0 \).
+\end{solution}
+
+\begin{sidebox}
+\begin{problem}
+    Let \( a, b, c \) be real numbers. Prove that
+    \[
+        a^4 + b^4 + c^4 \ge abc(a + b + c)
+    .\]
+\end{problem}
+\end{sidebox}
+
+\begin{solution}
+    If we multiply both sides by two, subtract the right hand side over to the left, and rewrite the left hand side, we get that the inequality is equivalent to
+    \[
+        (a^2 - b^2)^2 + (b^2 - c^2)^2 + (c^2 - a^2)^2 + 2a^2 b^2 + 2 b^2 c^2 + 2 c^2 a^2 - 2abc(a + b + c) \ge 0
+    .\]
+    Notice, however, that we have already proved that
+    \[
+        a^2 b^2 + b^2 c^2 + c^2 a^2 - abc(a + b + c) \ge 0
+    ,\]
+    so the inequality holds.
+\end{solution}
+
+\end{document}

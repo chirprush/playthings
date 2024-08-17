@@ -1,0 +1,30 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+% Some parts do in fact overlap with consecutive-totient-difference/main.tex, but I plan to turn this into
+% an article over that so that should be fine idk.
+\section*{Upper Bound Regression}
+
+\begin{sidebox}
+    \begin{problem}
+        Suppose we have a set of points \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \) and we wish to find a line of the form
+        \[
+            f(x) = \beta x + \alpha
+        \]
+        such that \( f(x_k) \ge y_k \) for all \( k \) and we minimize the total squared distance from each point. In other words, we want to find a line to bound above all points as tightly as possible.
+    \end{problem}
+\end{sidebox}
+
+This is actually useful in certain cases, and hopefully it can be used in some inferential statistics, but we shall first derive a way to calculate it. We will see that, compared to its normal linear regression equivalent, the upper bound linear regression is computed in a completely different way. Our first observation will be the following.
+
+% Bro actually this is not in fact true when the dataset is symmetric about some vertical line in that case the line is just horizontal and we don't necessarily have that it passes through two points so maybe I gotta rework this I think
+\begin{observation}
+    Suppose we have an upper bounding line \( f(x) \). Then \( f(x) \) must pass through at least two of \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \).
+\end{observation}
+
+
+
+\end{document}
