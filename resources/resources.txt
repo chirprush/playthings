@@ -1,2 +1,4 @@
 - NTT Algorithm: https://eprint.iacr.org/2024/585.pdf
 - My MathOverflow Question on equal covering sets: https://mathoverflow.net/questions/472956/counting-equal-covering-sets
+- A very nice lecture on Gaussian Processes: https://www.youtube.com/watch?v=R-NUdqxKjos
+- Evan Chen's napkin: https://venhance.github.io/napkin/Napkin.pdf

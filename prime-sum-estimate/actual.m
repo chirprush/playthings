@@ -1,0 +1,10 @@
+f[n_] := Sum[p, {p, Prime @ Range @ PrimePi @ n}]
+
+Print[f[10^1]]
+Print[f[10^2]]
+Print[f[10^3]]
+Print[f[10^4]]
+Print[f[10^5]]
+Print[f[10^6]]
+Print[f[10^7]]
+Print[f[10^8]]

@@ -1,7 +1,7 @@
 import numpy as np
 import itertools as it
 
-m = 3
+m = 4
 k = 2
 
 frequencies = {}

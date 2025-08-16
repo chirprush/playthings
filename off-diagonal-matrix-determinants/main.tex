@@ -1,0 +1,40 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{Determinants of Off-Diagonal Triangular Matrices}
+
+Consider a matrix of the following consisting of only nonzero elements on the diagonal and off-diagonal:
+\[
+    A = \begin{bmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22} & a_{23} \\
+        & a_{32} & \ddots & a_{(n-2)(n-1)} \\
+        & & & a_{(n-1)(n-1)} & a_{(n-1)n} \\
+        & & & a_{n(n-1)} & a_{nn}
+    \end{bmatrix}
+.\]
+
+\begin{blackbox}
+    \begin{problem}
+        What is the determinant of \( A \)?
+    \end{problem}
+\end{blackbox}
+
+\begin{solution}
+    We will derive a recurrence for the diagonal elements \( d_i \) after having row reduced to eliminate the values below the diagonal. Following this row reduction, the determinant will simply be
+    \[
+        \det A = d_1 d_2 \cdots d_n
+    .\]
+    Our initial condition shall be that \( d_1 = a_11 \). Observe then that
+    \[
+        d_i = a_{ii} - a_{i(i-1)} \cdot \frac{a_{(i-1)i}}{d_{i-1}}
+    ,\]
+    which suffices for our recurrence.
+
+    If one of the \( d_i \) values are \( 0 \), then the determinant doesn't exist (?). Actually this isn't true hmmmm I suppose we could row swap up in this case.
+\end{solution}
+
+\end{document}
