@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{chirpstyle}
+
+\begin{document}
+
+\section*{Custom Color Filters}
+
+\begin{blackbox}
+    \begin{problem}
+        Suppose I have a list of colors that form a colorscheme. How can I
+        create a (relatively good-looking) filter that respects this
+        colorscheme?
+    \end{problem}
+\end{blackbox}
+
+We start with a few simplifying ideas.
+
+\begin{idea}
+    We don't care about neighboring pixels, so we're just transforming
+    individual pixels. Formally, let \( C := [0, 1]^3 \) be our color space,
+    with the vector components corresponding to intensities of red, green, and
+    blue. Our filter consists entirely of some well chosen, continuous function
+    \( f : C \to C \).
+\end{idea}
+
+\begin{idea}
+    There's a nice physical intuition for what we're trying to achieve. The
+    colors in our colorscheme turn into points of \( C \), which we can denote
+    by the set \( P \). In trying to transform pixels to better respect the
+    colorscheme, we should ideally have some notion of moving points in a
+    neighborhood of \( P \) closer to \( P \), almost as if the points in \( P
+    \) have their own gravity.
+\end{idea}
+
+With these two ideas, it suffices to just put some numbers and basic function
+forms to create a cool color filter.
+
+Ideally, the attraction of any point in a colorscheme should be radially symmetric and pointing inwards. Thus, we can further classify \( f \) to be of the form
+\[
+    f(\vec{x}) = \vec{x} + \sum_{\vec{p} \in P} s(\| \vec{p} - \vec{x} \|) \cdot \nabla (\| \vec{p} - \vec{x} \|)
+,\]
+but since
+\[
+    \nabla (\| \vec{p} - \vec{x} \|) = \frac{2(\vec{p} - \vec{x})}{\| \vec{p} - \vec{x} \|}
+,\]
+we can write \( f \) as
+\[
+    f(\vec{x}) = \vec{x} +  \sum_{p \in P} s(\| \vec{p} - \vec{x} \|) (\vec{p} - \vec{x})
+,\]
+where \( s : \R^+ \to \R^+ \) is some function that, intuitively, should be
+small near \( 0 \), increase until a value somewhat close to \( 0 \), and then
+taper off. We desire this behavior as we don't need to move colors that are too
+close or too far away from the colorscheme point, but we want to move the ones
+that are somewhat close. A good candidate family of functions are the polynomial exponentional functions, where we choose
+\[
+    s(r) = C r^{n} \exp(-ar)
+.\]
+Indeed, we pick \( C = 1, n = 1, a = 3.5 \), which yields a rather pleasant
+result after darkening the resulting image after filtering.
+
+\end{document}
